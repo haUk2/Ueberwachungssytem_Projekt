@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "453817931876",
+    "project_id": "filemanagerdb-c3667",
+    "storage_bucket": "filemanagerdb-c3667.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453817931876:android:32cc35642aa885e9b72771",
+        "android_client_info": {
+          "package_name": "com.example.email_passwort_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453817931876-1tcdhg50csc3lroe22ekfogehu7eg63u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.email_passwort_login",
+            "certificate_hash": "30d463c2c03af70d1e02c07fd94d57a0778b6b89"
+          }
+        },
+        {
+          "client_id": "453817931876-63k740h4gihoqljnqadhjva4u6p8a7ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdYCQ87ZZiYyB_8aaejGWu7_5delQb9zY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453817931876-63k740h4gihoqljnqadhjva4u6p8a7ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
