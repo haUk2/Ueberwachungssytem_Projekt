@@ -40,10 +40,9 @@ class _FireBaseDownloadState extends State<FireBaseDownload> {
       loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
     });
-    var userEmail = loggedInUser.email;
-    var destination = "files/$userEmail/";
-    futureFiles =
-        FirebaseStorage.instance.ref("files/petergriffin@gmail.com/").listAll();
+
+    var destination = "files/${loggedInUser.email.toString()}/";
+    futureFiles = FirebaseStorage.instance.ref("files/").listAll();
   }
 
   @override
