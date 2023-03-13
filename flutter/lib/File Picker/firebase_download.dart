@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:email_passwort_login/api/firebase_api.dart';
 import 'package:email_passwort_login/model/firebase_file.dart';
@@ -10,6 +11,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import '../File Picker/firebase_download.dart';
 
 class FireBaseDownload extends StatefulWidget {
   const FireBaseDownload({Key? key}) : super(key: key);
@@ -19,14 +21,29 @@ class FireBaseDownload extends StatefulWidget {
 }
 
 class _FireBaseDownloadState extends State<FireBaseDownload> {
+  UploadTask? task;
+  File? file;
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
   late Future<ListResult> futureFiles;
   Map<int, double> downloadProgress = {};
 
   @override
   void initState() {
     super.initState();
-
-    futureFiles = FirebaseStorage.instance.ref('files/}').listAll();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+    var userEmail = loggedInUser.email;
+    var destination = "files/$userEmail/";
+    futureFiles =
+        FirebaseStorage.instance.ref("files/petergriffin@gmail.com/").listAll();
   }
 
   @override

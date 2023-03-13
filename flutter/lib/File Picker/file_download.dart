@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_passwort_login/api/firebase_api.dart';
 import 'package:email_passwort_login/model/firebase_file.dart';
 import 'package:email_passwort_login/model/user_model.dart';
@@ -36,8 +37,15 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     final FirebaseApi _listAll = FirebaseApi();
-
-    futureFiles = _listAll.listAll('files/${loggedInUser.email}/');
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+    futureFiles = _listAll.listAll('files/');
   }
 
   @override
