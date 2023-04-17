@@ -24,7 +24,7 @@ print()
 
 while True:
   i2cbus = smbus.SMBus(1)
-  time.sleep(0.5)
+  time.sleep(2)
 
   data = i2cbus.read_i2c_block_data(address,0x71,1)
   if (data[0] | 0x08) == 0:
